@@ -22,7 +22,7 @@ class Boxer
     private $name;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="boxrec_id")
      */
     private $boxrecId;
 
@@ -42,7 +42,7 @@ class Boxer
     private $record;
 
     /**
-     * @ORM\Column(type="string", length=45)
+     * @ORM\Column(type="string", length=45, name="home_town")
      */
     private $homeTown;
 
@@ -67,23 +67,23 @@ class Boxer
     private $enabled;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", name="created_at")
      */
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", name="updated_at")
      */
     private $updatedAt;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true, name="deleted_at")
      */
     private $deletedAt;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Division", inversedBy="boxers")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, name="id")
      */
     private $divisionId;
 
