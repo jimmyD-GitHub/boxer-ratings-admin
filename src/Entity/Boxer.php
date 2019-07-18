@@ -47,7 +47,7 @@ class Boxer
     private $homeTown;
 
     /**
-     * @ORM\Column(type="string", length=250)
+     * @ORM\Column(type="text", length=250)
      */
     private $snippet;
 
