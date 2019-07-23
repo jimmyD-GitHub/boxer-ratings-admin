@@ -1,23 +1,30 @@
 easy_admin:
+  site_name: 'BoxerRatings.com Admin'
+  user:
+    display_name: true
+    display_avatar: false
+  design:
+    brand_color: 'rgba(137, 11, 17)'
   entities:
     Boxer:
       class: App\Entity\Boxer
       label: Boxers
       list:
-        title: 'BoxerRatings.com Fighters'
+        title: 'Boxers'
         sort: ['division.id', 'ASC']
-        fields: ['id', 'name', { property: 'division.name', label: 'Division' },
-                 'enabled', { property: 'updated_at', type: 'datetime', label: 'Last Updated'}]
+        fields: ['id', 'name', { property: 'division.name', label: 'Division' }, 'enabled',
+                 { property: 'nationality', type: 'country' },
+                 { property: 'updated_at', type: 'datetime', label: 'Last Updated'}]
       form:
         fields:
           - { property: 'division', label: 'Division' }
           - name
-          - { property: 'dob', label: 'Born' }
+          - { property: 'dob', label: 'Born', type_options: { widget: 'single_text' } }
           - { property: 'homeTown', label: 'Home Town' }
           - { property: 'boxrecId', label: 'BoxRec.com ID' }
-          - nationality
+          - { property: 'nationality', type: 'country' }
           - record
           - twitter
-          - snippet
+          - { property: 'snippet', type: 'text_editor' }
           - enabled
 
