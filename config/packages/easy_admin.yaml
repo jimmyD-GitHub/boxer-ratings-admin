@@ -1,17 +1,23 @@
 easy_admin:
-    entities:
-        Boxer:
-            class: App\Entity\Boxer
-            form:
-                fields:
-                    - { property: 'division', label: 'Division' }
-                    - name
-                    - { property: 'dob', label: 'Born' }
-                    - { property: 'homeTown', label: 'Home Town' }
-                    - { property: 'boxrecId', label: 'BoxRec.com ID' }
-                    - nationality
-                    - record
-                    - twitter
-                    - snippet
-                    - enabled
+  entities:
+    Boxer:
+      class: App\Entity\Boxer
+      label: Boxers
+      list:
+        title: 'BoxerRatings.com Fighters'
+        sort: ['division.id', 'ASC']
+        fields: ['id', 'name', { property: 'division.name', label: 'Division' },
+                 'enabled', { property: 'updated_at', type: 'datetime', label: 'Last Updated'}]
+      form:
+        fields:
+          - { property: 'division', label: 'Division' }
+          - name
+          - { property: 'dob', label: 'Born' }
+          - { property: 'homeTown', label: 'Home Town' }
+          - { property: 'boxrecId', label: 'BoxRec.com ID' }
+          - nationality
+          - record
+          - twitter
+          - snippet
+          - enabled
 
