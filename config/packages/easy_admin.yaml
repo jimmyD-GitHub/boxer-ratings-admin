@@ -1,4 +1,17 @@
 easy_admin:
     entities:
-        - App\Entity\Boxer
-        - App\Entity\Division
+        Boxer:
+            class: App\Entity\Boxer
+            form:
+                fields:
+                    - { property: 'division', label: 'Division' }
+                    - name
+                    - { property: 'dob', label: 'Born' }
+                    - { property: 'homeTown', label: 'Home Town' }
+                    - { property: 'boxrecId', label: 'BoxRec.com ID' }
+                    - nationality
+                    - record
+                    - twitter
+                    - snippet
+                    - enabled
+

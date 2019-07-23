@@ -62,9 +62,9 @@ class Boxer
     private $twitter;
 
     /**
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="boolean")
      */
-    private $enabled;
+    private $enabled = true;
 
     /**
      * @ORM\Column(type="datetime", name="created_at")
@@ -83,9 +83,16 @@ class Boxer
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Division", inversedBy="boxers")
-     * @ORM\JoinColumn(nullable=false, name="id")
+     * @ORM\JoinColumn(nullable=false, name="division_id", referencedColumnName="id")
+     * @var Division
      */
-    private $divisionId;
+    private $division;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -200,12 +207,12 @@ class Boxer
         return $this;
     }
 
-    public function getEnabled(): ?int
+    public function getEnabled(): ?bool
     {
         return $this->enabled;
     }
 
-    public function setEnabled(int $enabled): self
+    public function setEnabled(bool $enabled): self
     {
         $this->enabled = $enabled;
 
@@ -248,15 +255,29 @@ class Boxer
         return $this;
     }
 
-    public function getDivisionId(): ?Division
+    public function getDivision(): ?Division
     {
-        return $this->divisionId;
+        return $this->division;
     }
 
-    public function setDivisionId(?Division $divisionId): self
+    public function setDivision(?Division $division): self
     {
-        $this->divisionId = $divisionId;
+        $this->division = $division;
 
         return $this;
+    }
+
+    public function hasDivisionId(): bool
+    {
+        return $this->division instanceof Division;
+    }
+
+    public function getDivisionId(): int
+    {
+        if ($this->hasDivisionId()) {
+            return $this->division->getId();
+        }
+
+        return 0;
     }
 }
