@@ -1,6 +1,13 @@
-index:
-    path: /
-    controller: App\Controller\SecurityController::login
-
 admin:
     path: /admin
+
+app_logout:
+    path: /logout
+    methods: GET
+
+homepage:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+    defaults:
+        path: /login
+        permanent: true
