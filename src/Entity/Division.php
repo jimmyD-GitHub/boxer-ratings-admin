@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -48,16 +49,26 @@ class Division
         $this->boxers = new ArrayCollection();
     }
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return Division
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -65,36 +76,57 @@ class Division
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    /**
+     * @return DateTimeInterface|null
+     */
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    /**
+     * @param DateTimeInterface $createdAt
+     * @return Division
+     */
+    public function setCreatedAt(DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
+    /**
+     * @return DateTimeInterface|null
+     */
+    public function getUpdatedAt(): ?DateTimeInterface
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    /**
+     * @param DateTimeInterface $updatedAt
+     * @return Division
+     */
+    public function setUpdatedAt(DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
-    public function getDeletedAt(): ?\DateTimeInterface
+    /**
+     * @return DateTimeInterface|null
+     */
+    public function getDeletedAt(): ?DateTimeInterface
     {
         return $this->deletedAt;
     }
 
-    public function setDeletedAt(?\DateTimeInterface $deletedAt): self
+    /**
+     * @param DateTimeInterface|null $deletedAt
+     * @return Division
+     */
+    public function setDeletedAt(?DateTimeInterface $deletedAt): self
     {
         $this->deletedAt = $deletedAt;
 
@@ -109,30 +141,42 @@ class Division
         return $this->boxers;
     }
 
+    /**
+     * @param Boxer $boxer
+     * @return Division
+     */
     public function addBoxer(Boxer $boxer): self
     {
         if (!$this->boxers->contains($boxer)) {
             $this->boxers[] = $boxer;
-            $boxer->setDivisionId($this);
+            $boxer->setDivision($this);
         }
 
         return $this;
     }
 
+    /**
+     * @param Boxer $boxer
+     * @return Division
+     */
     public function removeBoxer(Boxer $boxer): self
     {
         if ($this->boxers->contains($boxer)) {
             $this->boxers->removeElement($boxer);
             // set the owning side to null (unless already changed)
-            if ($boxer->getDivisionId() === $this) {
-                $boxer->setDivisionId(null);
+            if ($boxer->getDivision() === $this) {
+                $boxer->setDivision(null);
             }
         }
 
         return $this;
     }
 
-    public function __toString() {
+    /**
+     * @return mixed
+     */
+    public function __toString()
+    {
         return $this->name;
     }
 }
