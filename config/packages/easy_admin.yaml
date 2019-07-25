@@ -27,4 +27,14 @@ easy_admin:
           - twitter
           - { property: 'snippet', type: 'text_editor' }
           - enabled
-
+    P4pRating:
+      class: App\Entity\P4pRating
+      label: Pound For Pound
+      list:
+        title: Pound For Pound Ratings
+        sort: ['rating', 'ASC']
+        fields: ['boxer', 'rating', { property: 'updated_at', type: 'datetime', label: 'Last Updated'} ]
+      form:
+        fields:
+          - boxer
+          - rating

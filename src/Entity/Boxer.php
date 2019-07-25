@@ -393,4 +393,12 @@ class Boxer
     {
         return $this->division instanceof Division;
     }
+
+    /**
+     * @return mixed
+     */
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 }
