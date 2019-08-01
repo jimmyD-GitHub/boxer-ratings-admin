@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeZone;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BoxerRepository")
@@ -21,6 +22,7 @@ class Boxer
 
     /**
      * @ORM\Column(type="string", length=45)
+     * @Assert\Length(max=45)
      */
     private $name;
 
@@ -31,6 +33,7 @@ class Boxer
 
     /**
      * @ORM\Column(type="string", length=2)
+     * @Assert\Length(max=2)
      */
     private $nationality;
 
@@ -41,26 +44,30 @@ class Boxer
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\Length(max=20)
      */
     private $record;
 
     /**
      * @ORM\Column(type="string", length=45, name="home_town")
+     * @Assert\Length(max=45)
      */
     private $homeTown;
 
     /**
-     * @ORM\Column(type="text", length=250)
+     * @ORM\Column(type="text")
      */
     private $snippet;
 
     /**
      * @ORM\Column(type="string", length=18)
+     * @Assert\Length(max=18)
      */
     private $titles;
 
     /**
-     * @ORM\Column(type="string", length=15)
+     * @ORM\Column(type="string", length=15, nullable=true)
+     * @Assert\Length(max=15)
      */
     private $twitter;
 
