@@ -1,0 +1,7 @@
+.idea
+.dockerignore
+vendor
+var/cache/*
+node_modules
+README.md
+*/.git/*
