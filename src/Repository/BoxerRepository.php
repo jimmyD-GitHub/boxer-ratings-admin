@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Boxer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry as RegistryInterface;
 
 /**
  * @method Boxer|null find($id, $lockMode = null, $lockVersion = null)
