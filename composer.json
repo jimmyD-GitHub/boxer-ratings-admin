@@ -5,6 +5,8 @@
         "php": "^7.1.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "aws/aws-sdk-php": "^3.133",
+        "bref/bref": "^0.5.15",
         "easycorp/easyadmin-bundle": "^2.2",
         "symfony/apache-pack": "^1.0",
         "symfony/console": "4.3.*",
@@ -55,6 +57,16 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "app-deploy": [
+            "APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear",
+            "APP_ENV=prod composer install --prefer-dist --optimize-autoloader --no-dev",
+            "rm -rf node_modules var/cache/dev",
+            "serverless deploy"
+        ],
+        "assets-deploy": [
+            "yarn encore production",
+            "php bin/console app:deploy-assets"
         ]
     },
     "conflict": {

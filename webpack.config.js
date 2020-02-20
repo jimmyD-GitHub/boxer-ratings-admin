@@ -27,4 +27,9 @@ Encore
   .enableSassLoader()
 ;
 
+if (Encore.isProduction()) {
+  Encore.setPublicPath('https://assets.boxeratings.com/');
+  Encore.setManifestKeyPrefix('');
+}
+
 module.exports = Encore.getWebpackConfig();

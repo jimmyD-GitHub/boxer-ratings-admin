@@ -38,4 +38,30 @@ $ docker push jimmydockerhub/boxer-ratings-admin:latest
 
 ## Production
 
-The plan is to use bref.
+The admin.boxeratings.com application is hosted on AWS using CloudFormation, S3 and CloudFront.
+
+## Deployment
+
+To build the assets files do:
+
+```shell script
+$ yarn encore production
+```
+
+To push the JS and CSS files to assets.boxeratings.com do:
+
+```shell script
+$ php bin/console app:deploy-assets
+```
+
+There is a handy composer command that does both of these together:
+
+```shell script
+$ composer assets-deploy
+```
+
+To deploy to admin.boxeratings.com running on an AWS Lambda using serverless do:
+
+```shell script
+$ composer app-deploy
+```

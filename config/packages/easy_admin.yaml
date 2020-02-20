@@ -5,10 +5,13 @@ easy_admin:
     display_avatar: false
   design:
     brand_color: 'rgba(137, 11, 17)'
+    assets:
+      favicon: https://images.boxeratings.com/favicon.ico
   entities:
     Boxer:
       class: App\Entity\Boxer
       label: Boxers
+      disabled_actions: ['delete']
       list:
         title: 'Boxers'
         sort: ['division.id', 'ASC']

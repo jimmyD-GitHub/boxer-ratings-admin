@@ -27,7 +27,7 @@ class UserFixtures extends Fixture
     {
         $user = new User();
 
-        $user->setUsername('Jimmy')
+        $user->setUsername('Test')
             ->setRoles(['ROLE_ADMIN']);
 
         $plainPassword = 'password';
