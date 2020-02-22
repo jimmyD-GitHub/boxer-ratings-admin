@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('login') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('login') }}
+{% endblock %}
+
+{% block body %}
+
+    <form class="form-signin" action="{{ path("2fa_login_check") }}" method="post" novalidate>
+        {% if authenticationError %}
+            <div class="alert alert-primary">
+                {{ authenticationError|trans(authenticationErrorData, 'SchebTwoFactorBundle') }}
+            </div>
+        {% endif %}
+        <label for="_auth_code" class="sr-only">
+            {{ "auth_code"|trans({}, 'SchebTwoFactorBundle') }} {{ twoFactorProvider }}
+        </label>
+        <input id="_auth_code" type="text" name="{{ authCodeParameterName }}" class="form-control"
+               autocomplete="one-time-code" placeholder="Auth Code" required autofocus/>
+        <div class="invalid-feedback">
+            Please provide authentication.
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+            {{ "login"|trans({}, 'SchebTwoFactorBundle') }}
+        </button>
+        <a href="{{ logoutPath }}">{{ "cancel"|trans({}, 'SchebTwoFactorBundle') }}</a>
+    </form>
+
+{% endblock %}

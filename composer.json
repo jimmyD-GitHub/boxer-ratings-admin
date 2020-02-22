@@ -8,6 +8,7 @@
         "aws/aws-sdk-php": "^3.133",
         "bref/bref": "^0.5.15",
         "easycorp/easyadmin-bundle": "^2.2",
+        "scheb/two-factor-bundle": "^4.14",
         "symfony/apache-pack": "^1.0",
         "symfony/console": "4.3.*",
         "symfony/dotenv": "4.3.*",
