@@ -14,7 +14,7 @@
 
 {% block body %}
 
-    <form class="form-signin" action="{{ path("2fa_login_check") }}" method="post" novalidate>
+    <form class="form-signin needs-validation" action="{{ path("2fa_login_check") }}" method="post" novalidate>
         {% if authenticationError %}
             <div class="alert alert-primary">
                 {{ authenticationError|trans(authenticationErrorData, 'SchebTwoFactorBundle') }}
