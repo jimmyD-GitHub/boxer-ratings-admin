@@ -144,6 +144,9 @@
     "psr/container": {
         "version": "1.0.0"
     },
+    "psr/event-dispatcher": {
+        "version": "1.0.0"
+    },
     "psr/http-message": {
         "version": "1.0.1"
     },
@@ -215,9 +218,6 @@
             "config/bootstrap.php"
         ]
     },
-    "symfony/debug": {
-        "version": "v4.3.2"
-    },
     "symfony/dependency-injection": {
         "version": "v4.3.2"
     },
@@ -226,6 +226,9 @@
     },
     "symfony/dotenv": {
         "version": "v4.3.2"
+    },
+    "symfony/error-handler": {
+        "version": "v5.0.4"
     },
     "symfony/event-dispatcher": {
         "version": "v4.3.2"
