@@ -1,4 +1,13 @@
 {
+    "async-aws/cloud-formation": {
+        "version": "0.5.0"
+    },
+    "async-aws/core": {
+        "version": "1.2.0"
+    },
+    "async-aws/lambda": {
+        "version": "0.5.0"
+    },
     "aws/aws-sdk-php": {
         "version": "3.133.18"
     },
@@ -83,6 +92,9 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
+    "doctrine/sql-formatter": {
+        "version": "1.1.0"
+    },
     "easycorp/easyadmin-bundle": {
         "version": "2.0",
         "recipe": {
@@ -108,9 +120,6 @@
     "hollodotme/fast-cgi-client": {
         "version": "v3.0.1"
     },
-    "jdorn/sql-formatter": {
-        "version": "v1.2.17"
-    },
     "lcobucci/jwt": {
         "version": "3.3.1"
     },
@@ -122,6 +131,18 @@
     },
     "nikic/php-parser": {
         "version": "v4.2.2"
+    },
+    "nyholm/psr7": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "7c0a9352a57376f04f5444e74565102c3a23d0c7"
+        },
+        "files": [
+            "config/packages/nyholm_psr7.yaml"
+        ]
     },
     "ocramius/package-versions": {
         "version": "1.5.1"
@@ -138,6 +159,9 @@
     "php-di/invoker": {
         "version": "2.0.0"
     },
+    "php-http/message-factory": {
+        "version": "v1.0.2"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -146,6 +170,9 @@
     },
     "psr/event-dispatcher": {
         "version": "1.0.0"
+    },
+    "psr/http-factory": {
+        "version": "1.0.1"
     },
     "psr/http-message": {
         "version": "1.0.1"
@@ -221,6 +248,9 @@
     "symfony/dependency-injection": {
         "version": "v4.3.2"
     },
+    "symfony/deprecation-contracts": {
+        "version": "v2.1.2"
+    },
     "symfony/doctrine-bridge": {
         "version": "v4.3.2"
     },
@@ -279,6 +309,12 @@
             "src/Kernel.php"
         ]
     },
+    "symfony/http-client": {
+        "version": "v5.0.9"
+    },
+    "symfony/http-client-contracts": {
+        "version": "v2.1.2"
+    },
     "symfony/http-foundation": {
         "version": "v4.3.2"
     },
@@ -320,6 +356,9 @@
     },
     "symfony/polyfill-php73": {
         "version": "v1.11.0"
+    },
+    "symfony/polyfill-php80": {
+        "version": "v1.17.0"
     },
     "symfony/process": {
         "version": "v4.3.11"

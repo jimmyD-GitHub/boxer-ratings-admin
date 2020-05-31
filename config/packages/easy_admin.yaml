@@ -41,3 +41,19 @@ easy_admin:
         fields:
           - boxer
           - rating
+    BlogPost:
+      class: App\Entity\BlogPost
+      label: Blog Post
+      list:
+        title: Blog Posts
+        sort: ['createdAt', 'DESC']
+        fields: ['title', 'enabled', 'description', { property: 'createdAt', type: 'datetime', label: 'Created'} ]
+      form:
+        fields:
+          - { property: 'type', type: 'choice', type_options:{choices: { Prediction: 'prediction', Opinion: 'opinion', Report: 'report', Profile: 'profile', Feature: 'feature'}} }
+          - title
+          - subHeading
+          - slug
+          - description
+          - body
+          - enabled

@@ -4,7 +4,7 @@ MAINTAINER Jimmy Dixon <jamesalandixon@gmail.com>
 LABEL Description = "A light weight CMS web application built with Symfony flex libraries."
 
 RUN apt-get update \
-    && apt-get install --assume-yes -yqq apt-utils libzip-dev ca-certificates vim curl git-core \
+    && apt-get install --assume-yes -yqq apt-utils libzip-dev rsync ca-certificates vim curl git-core \
     zlib1g-dev wget unzip nodejs npm \
     && docker-php-ext-install zip \
     && docker-php-ext-install pdo_mysql \
